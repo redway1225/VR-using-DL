@@ -101,11 +101,13 @@ def train_model(model, criterion, optimizer, scheduler, n_epochs = 5):
     test_accuracies = []
     # set the model to train mode initially
     model.train()
+    
     for epoch in range(n_epochs):
         torch.save(model_ft,'HW1_resnet101_'+str(epoch)+'.pt')
         since = time.time()
         running_loss = 0.0
         running_correct = 0.0
+        
         for i, data in enumerate(trainloader, 0):
             # get the inputs and assign them to cuda
             inputs, labels = data
@@ -149,6 +151,7 @@ def train_model(model, criterion, optimizer, scheduler, n_epochs = 5):
 def eval_model(model):
     # evaluate the accuracy of testing data
     correct = 0.0
+    
     for i in range(test_number):
         test_image_number = test_list[i]
         image = torch.autograd.Variable(car_dataset[test_image_number][0], requires_grad=True)
@@ -168,6 +171,7 @@ def gen_test_csv(model):
     all_test_imgs = os.listdir(test_root_dir)
     test_imgs_len = len(all_test_imgs)
     all_test_result = []
+    
     for i in range(test_imgs_len):
         # just a counter to observe the completion
         if i % 100 ==0:
@@ -182,6 +186,7 @@ def gen_test_csv(model):
         conf, predicted = torch.max(output.data, 1)
         test_result = [all_test_imgs[i], car_type.index2label[predicted.item()]]
         all_test_result.append(test_result)
+        
     with open('output.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['id', 'label'])
@@ -216,4 +221,3 @@ HW1_model=torch.load('HW1_resnet101.pt')
 HW1_model.eval()
 eval_model(HW1_model)
 gen_test_csv(HW1_model)
-
