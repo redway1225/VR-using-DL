@@ -28,6 +28,7 @@ print(device)
 print(torch.cuda.get_device_name(device))
 
 class label_library:
+    # A library to change car_type label to a number
     def __init__(self):
         self.label2index = {}
         self.label2count = {}
@@ -44,6 +45,7 @@ class label_library:
             self.label2count[label] += 1
 
 class CarDataSet(Dataset):
+    # Cover the training_data to a custom dataset
     def __init__(self, root_dir, labels, transform):
         self.root_dir = root_dir
         self.transform = transform
@@ -71,27 +73,29 @@ train_tfms = transforms.Compose([transforms.Resize((400, 400)),
 test_tfms = transforms.Compose([transforms.Resize((400, 400)),
                                 transforms.ToTensor(),
                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+                                
 car_type = label_library()
-
 label_csv = pd.read_csv('training_labels.csv')
 label_csv = label_csv.sort_values("id")
 car_labels = list(label_csv.iloc[:, 1])
 
-
+# Store the car_type in dictionary
 for i in range(len(car_labels)):
     car_type.addlabel(car_labels[i])
     car_labels[i]=car_type.label2index[car_labels[i]]
     
 
 car_dataset=CarDataSet(root_dir=train_root_dir,
-            labels=car_labels,
-            transform=train_tfms,)
+                       labels=car_labels,
+                       transform=train_tfms)
+            
+#Valid some data as test data
 test_list = random.sample(range(1, len(car_dataset)), test_number)
 
 trainloader = torch.utils.data.DataLoader(car_dataset, batch_size = 32, shuffle=True, num_workers = 2)
 
 def train_model(model, criterion, optimizer, scheduler, n_epochs = 5):
-    
+    # train the model
     losses = []
     accuracies = []
     test_accuracies = []
@@ -112,7 +116,6 @@ def train_model(model, criterion, optimizer, scheduler, n_epochs = 5):
             optimizer.zero_grad()
             
             # forward + backward + optimize
-            #print(inputs.shape)
             outputs = model(inputs)
             _, predicted = torch.max(outputs.data, 1)
             loss = criterion(outputs, labels)
@@ -186,7 +189,7 @@ def gen_test_csv(model):
     display(Image.open(test_img_path))
     print(all_test_imgs[1], ":", car_type.index2label[predicted.item()], "confidence: ", conf.item())
 
-    return 1
+    return 0
 
 
 model_ft = models.resnet101(pretrained=True)
@@ -201,7 +204,7 @@ model_ft = model_ft.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model_ft.parameters(), lr=0.005, momentum=0.9)
 lrscheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', patience=3, threshold = 0.9)
-"""
+
 model_ft, training_losses, training_accs, test_accs = train_model(model_ft, criterion, optimizer, lrscheduler, n_epochs=20)
 traing_state = {'training_losses' : training_losses,
                 'training_accs' : training_accs,
@@ -209,7 +212,7 @@ traing_state = {'training_losses' : training_losses,
 
 torch.save(model_ft,'HW1_resnet101.pt')
 torch.save(traing_state,'HW1_resnet101_state.a')
-"""
+
 HW1_model=torch.load('HW1_resnet101.pt')
 HW1_model.eval()
 eval_model(HW1_model)
