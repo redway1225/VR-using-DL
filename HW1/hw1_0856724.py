@@ -169,6 +169,7 @@ def gen_test_csv(model):
     test_imgs_len = len(all_test_imgs)
     all_test_result = []
     for i in range(test_imgs_len):
+        # just a counter to observe the completion
         if i % 100 ==0:
             print(i/100)
         test_img_path = os.path.join(test_root_dir,all_test_imgs[i])
