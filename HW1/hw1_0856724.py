@@ -147,6 +147,7 @@ def train_model(model, criterion, optimizer, scheduler, n_epochs = 5):
     return model, losses, accuracies, test_accuracies
 
 def eval_model(model):
+    # evaluate the accuracy of testing data
     correct = 0.0
     for i in range(test_number):
         test_image_number = test_list[i]
@@ -163,6 +164,7 @@ def eval_model(model):
     return test_acc
 
 def gen_test_csv(model):
+    # write the predicted results in csv
     all_test_imgs = os.listdir(test_root_dir)
     test_imgs_len = len(all_test_imgs)
     all_test_result = []
@@ -182,12 +184,8 @@ def gen_test_csv(model):
     with open('output.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['id', 'label'])
-        
         for i in range(test_imgs_len):
             writer.writerow(all_test_result[i])
-            
-    display(Image.open(test_img_path))
-    print(all_test_imgs[1], ":", car_type.index2label[predicted.item()], "confidence: ", conf.item())
 
     return 0
 
