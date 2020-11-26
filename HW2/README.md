@@ -40,7 +40,7 @@ growing.)
 * gen_json.py：Generate a json including testing dataset detection result.
 * 0856724_5.json：My best json which arrive mAP 0.44333 with svhn dataset.
 ## Reference
-TF2 eager implementation of Yolo-v3
-https://github.com/penny4860/tf2-eager-yolo3 [1]
-SVHN Voc Annotation Format
-https://github.com/penny4860/svhn-voc-annotation-format [2]
+* TF2 eager implementation of Yolo-v3
+* https://github.com/penny4860/tf2-eager-yolo3 [1]
+* SVHN Voc Annotation Format
+* https://github.com/penny4860/svhn-voc-annotation-format [2]
