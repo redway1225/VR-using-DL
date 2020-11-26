@@ -1,4 +1,4 @@
-#HW2: Object detection
+# HW2: Object detection
 This is to train your detector to detect the number in street view pictures.
 ## Hardware
 OS：Ubuntu 20.04 LTS
