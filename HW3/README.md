@@ -1,4 +1,4 @@
-# HW2: Semantic segmentation
+# HW3: Instance segmentation
 This is to train your semantic segmentation to segment the objects with labels in testing pictures.
 ## Hardware
 * OS：Ubuntu 20.04 LTS
