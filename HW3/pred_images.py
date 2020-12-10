@@ -25,7 +25,7 @@ from pycocotools.coco import COCO
 cfg = get_cfg()
 cfg.merge_from_file("gdrive/MyDrive/HW3/configs/mask_rcnn_X_101_32x8d_FPN_3x.yaml")
 
-cfg.MODEL.WEIGHTS = 'gdrive/MyDrive/HW3/model/model_0029999.pth'
+cfg.MODEL.WEIGHTS = 'gdrive/MyDrive/HW3/model/model_0856724_final.pth'
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.6
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 20
 

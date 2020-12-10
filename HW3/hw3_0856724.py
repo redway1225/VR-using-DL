@@ -48,7 +48,7 @@ cfg.SOLVER.BASE_LR = 0.00025
 cfg.SOLVER.MAX_ITER = 20000                       
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 20
-cfg.MODEL.WEIGHTS = "gdrive/MyDrive/HW3/model/model_0029999.pth"
+cfg.MODEL.WEIGHTS = "gdrive/MyDrive/HW3/model/model_0856724_final.pth"
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 
 trainer = DefaultTrainer(cfg) 
