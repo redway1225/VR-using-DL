@@ -1,5 +1,5 @@
 # HW3: Instance segmentation
-This is to train your semantic segmentation to segment the objects with labels in testing pictures.
+This is to train your instance segmentation to segment the objects with labels in testing pictures.
 ## Hardware
 * OS：Ubuntu 20.04 LTS
 * CPU：Intel Xeon Gold 6136 @ 3.40 GHz
