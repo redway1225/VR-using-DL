@@ -30,17 +30,49 @@ This homework is to train your image-super-resolution model to upscale the pictu
 * result：My best result which arrive psnr 22.507.
 * data_gen_mat/generate_train.m：Make training set to .h5 files for training.
 * data_gen_mat/generate_test_mat.m：Make testing set to 3 scales of .mat files for evaluation.
+### Training
+```
+usage: main_vdsr.py [-h] [--batchSize BATCHSIZE] [--nEpochs NEPOCHS] [--lr LR]
+               [--step STEP] [--cuda] [--resume RESUME]
+               [--start-epoch START_EPOCH] [--clip CLIP] [--threads THREADS]
+               [--momentum MOMENTUM] [--weight-decay WEIGHT_DECAY]
+               [--pretrained PRETRAINED] [--gpus GPUS]
+               
+optional arguments:
+  -h, --help            Show this help message and exit
+  --batchSize           Training batch size
+  --nEpochs             Number of epochs to train for
+  --lr                  Learning rate. Default=0.01
+  --step                Learning rate decay, Default: n=10 epochs
+  --cuda                Use cuda
+  --resume              Path to checkpoint
+  --clip                Clipping Gradients. Default=0.4
+  --threads             Number of threads for data loader to use Default=1
+  --momentum            Momentum, Default: 0.9
+  --weight-decay        Weight decay, Default: 1e-4
+  --pretrained PRETRAINED
+                        path to pretrained model (default: none)
+  --gpus GPUS           gpu ids (default: 0)
+```
+An example of training usage is shown as follows:
+```
+python main_vdsr.py --cuda --gpus 0
+```
 ## Results
 <p>
   <img src='testing_lr_images/01.png' height='200' width='200'/>
   <img src='testing_lr_images_3x/01.png' height='200' width='200'/>
   <img src='result/01.png' height='200' width='200'/>
 </p>
-<p align="center">
-  <img width="498" height="480" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/06.png">
+<p>
+  <img src='testing_lr_images/06.png' height='207.5' width='200'/>
+  <img src='testing_lr_images_3x/06.png' height='207.5' width='200'/>
+  <img src='result/06.png' height='207.5' width='200'/>
 </p>
 <p align="center">
-  <img width="498" height="360" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/12.png">
+  <img src='testing_lr_images/06.png' height='276.6' width='200'/>
+  <img src='testing_lr_images_3x/06.png' height='276.6' width='200'/>
+  <img src='result/06.png' height='276.6' width='200'/>
 </p>
 
 ## Reference
