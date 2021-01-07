@@ -59,6 +59,7 @@ An example of training usage is shown as follows:
 python main_vdsr.py --cuda --gpus 1 --resume checkpoint/model_epoch_50.pth --batchSize 64
 ```
 ## Results
+From left to right are original image, 3x image and vdsr.
 <p>
   <img src='testing_lr_images/01.png' height='200' width='200'/>
   <img src='testing_lr_images_3x/01.png' height='200' width='200'/>
