@@ -31,14 +31,14 @@ This homework is to train your image-super-resolution model to upscale the pictu
 * data_gen_mat/generate_train.m：Make training set to .h5 files for training.
 * data_gen_mat/generate_test_mat.m：Make testing set to 3 scales of .mat files for evaluation.
 ## Results
-<p align="center">
-  <img width="307" height="400" src="https://https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/01.png">
+<p align="">
+  <img width="510" height="510" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/01.png">
 </p>
 <p align="center">
-  <img width="307" height="400" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/06.png">
+  <img width="498" height="80" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/06.png">
 </p>
 <p align="center">
-  <img width="307" height="400" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/12.png">
+  <img width="498" height="360" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/12.png">
 </p>
 
 ## Reference
