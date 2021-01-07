@@ -35,7 +35,7 @@ This homework is to train your image-super-resolution model to upscale the pictu
   <img width="510" height="510" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/01.png">
 </p>
 <p align="center">
-  <img width="498" height="80" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/06.png">
+  <img width="498" height="480" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/06.png">
 </p>
 <p align="center">
   <img width="498" height="360" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/12.png">
