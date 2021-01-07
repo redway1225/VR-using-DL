@@ -42,12 +42,14 @@ This is to train your instance segmentation to segment the objects with labels i
 <p align="center">
   <img width="307" height="400" src="https://github.com/redway1225/VR-using-DL/blob/master/HW3/results/boat.png">
 </p>
+
 ## Reference
 * Detectron2
 * https://github.com/facebookresearch/detectron2 [1]
 * Instance Segmentation using Detectron2
-* https://github.com/AlessandroSaviolo/Instance-Segmentation-using-Detectron2 [ 2]
+* https://github.com/AlessandroSaviolo/Instance-Segmentation-using-Detectron2 [2]
 * Mask R-CNN for Object Detection and Segmentation
 * https://github.com/matterport/Mask_RCNN [3]
 * Image data preprocessing
-* https://keras.io/api/preprocessing/image/ [4]
+* https://keras.io/api/preprocessing/image [4] 
+
