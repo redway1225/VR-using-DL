@@ -32,9 +32,9 @@ This homework is to train your image-super-resolution model to upscale the pictu
 * data_gen_mat/generate_test_mat.m：Make testing set to 3 scales of .mat files for evaluation.
 ## Results
 <p>
-  <img src='testing_lr_images/01.png' height='170' width='170'/>
-  <img src='testing_lr_images_3x/01.png' height='510' width='510'/>
-  <img src='result/01.png' height='510' width='510'/>
+  <img src='testing_lr_images/01.png' height='200' width='200'/>
+  <img src='testing_lr_images_3x/01.png' height='200' width='200'/>
+  <img src='result/01.png' height='200' width='200'/>
 </p>
 <p align="center">
   <img width="498" height="480" src="https://github.com/redway1225/VR-using-DL/blob/master/HW4/result/06.png">
