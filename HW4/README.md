@@ -65,14 +65,14 @@ python main_vdsr.py --cuda --gpus 1 --resume checkpoint/model_epoch_50.pth --bat
   <img src='result/01.png' height='200' width='200'/>
 </p>
 <p>
-  <img src='testing_lr_images/06.png' height='207.5' width='200'/>
-  <img src='testing_lr_images_3x/06.png' height='207.5' width='200'/>
-  <img src='result/06.png' height='207.5' width='200'/>
+  <img src='testing_lr_images/06.png' height='192.77' width='200'/>
+  <img src='testing_lr_images_3x/06.png' height='192.77' width='200'/>
+  <img src='result/06.png' height='192.77' width='200'/>
 </p>
 <p>
-  <img src='testing_lr_images/12.png' height='276.6' width='200'/>
-  <img src='testing_lr_images_3x/12.png' height='276.6' width='200'/>
-  <img src='result/12.png' height='276.6' width='200'/>
+  <img src='testing_lr_images/12.png' height='144.57' width='200'/>
+  <img src='testing_lr_images_3x/12.png' height='144.57' width='200'/>
+  <img src='result/12.png' height='144.57' width='200'/>
 </p>
 
 ## Reference
