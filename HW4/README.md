@@ -40,7 +40,7 @@ usage: main_vdsr.py [-h] [--batchSize BATCHSIZE] [--nEpochs NEPOCHS] [--lr LR]
                
 optional arguments:
   -h, --help            Show this help message and exit
-  --batchSize           Training batch size
+  batchSize           Training batch size
   --nEpochs             Number of epochs to train for
   --lr                  Learning rate. Default=0.01
   --step                Learning rate decay, Default: n=10 epochs
@@ -56,7 +56,7 @@ optional arguments:
 ```
 An example of training usage is shown as follows:
 ```
-python main_vdsr.py --cuda --gpus 0
+python main_vdsr.py --cuda --gpus 1 --resume checkpoint/model_epoch_50.pth --batchSize 64
 ```
 ## Results
 <p>
@@ -69,10 +69,10 @@ python main_vdsr.py --cuda --gpus 0
   <img src='testing_lr_images_3x/06.png' height='207.5' width='200'/>
   <img src='result/06.png' height='207.5' width='200'/>
 </p>
-<p align="center">
-  <img src='testing_lr_images/06.png' height='276.6' width='200'/>
-  <img src='testing_lr_images_3x/06.png' height='276.6' width='200'/>
-  <img src='result/06.png' height='276.6' width='200'/>
+<p>
+  <img src='testing_lr_images/12.png' height='276.6' width='200'/>
+  <img src='testing_lr_images_3x/12.png' height='276.6' width='200'/>
+  <img src='result/12.png' height='276.6' width='200'/>
 </p>
 
 ## Reference
