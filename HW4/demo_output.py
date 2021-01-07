@@ -15,15 +15,6 @@ parser.add_argument("--image", default="testing_lr_images", type=str, help="imag
 parser.add_argument("--scale", default=3, type=int, help="scale factor, Default: 3")
 parser.add_argument("--gpus", default="1", type=str, help="gpu ids (default: 1)")
 
-def PSNR(pred, gt, shave_border=0):
-    height, width = pred.shape[:2]
-    pred = pred[shave_border:height - shave_border, shave_border:width - shave_border]
-    gt = gt[shave_border:height - shave_border, shave_border:width - shave_border]
-    imdff = pred - gt
-    rmse = math.sqrt(np.mean(imdff ** 2))
-    if rmse == 0:
-        return 100
-    return 20 * math.log10(255.0 / rmse)
     
 def colorize(y, ycbcr): 
     img = np.zeros((y.shape[0], y.shape[1], 3), np.uint8)
@@ -49,10 +40,10 @@ model = torch.load(opt.model, map_location=lambda storage, loc: storage)["model"
 for img_name in image_names:
     img = Image.open(image_dir + "/" + img_name)
     (w, h) = img.size
-    new_img = img.resize((3*w, scale*h),Image.ANTIALIAS)
-    new_img.save(image_dir + "_"+str(scale)+"x/" + img_name)
+    new_img = img.resize((scale*w, scale*h),Image.ANTIALIAS)
+    new_img.save(image_dir + "_" + str(scale) + "x/" + img_name)
     
-    im_b_ycbcr = imread(image_dir + "_"+str(scale)+"x/" + img_name, mode="YCbCr")
+    im_b_ycbcr = imread(image_dir + "_"+str(scale) + "x/" + img_name, mode="YCbCr")
     
     im_b_y = im_b_ycbcr[:,:,0].astype(float)
     
@@ -87,18 +78,6 @@ for img_name in image_names:
     im_b = Image.fromarray(im_b_ycbcr, "YCbCr").convert("RGB")
     
     print("Scale=",opt.scale)
-    
     print("It takes {}s for processing".format(elapsed_time))
     
     imsave("result/"  + img_name, im_h)
-"""
-ax = plt.subplot("132")
-ax.imshow(im_b)
-ax.set_title("Input(bicubic)")
-
-ax = plt.subplot("133")
-ax.imshow(im_h)
-ax.set_title("Output(vdsr)")
-plt.show()
-imsave('00_4.png', im_h)
-"""
